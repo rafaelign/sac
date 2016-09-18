@@ -1,0 +1,24 @@
+AppBundle\Entity\Chamado:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ChamadoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titulo:
+            type: string
+            length: '150'
+        observacao:
+            type: text
+            nullable: true
+        clienteId:
+            type: integer
+            column: cliente_id
+        pedidoId:
+            type: integer
+            column: pedido_id
+    lifecycleCallbacks: {  }

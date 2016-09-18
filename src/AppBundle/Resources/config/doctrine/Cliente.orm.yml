@@ -1,0 +1,19 @@
+AppBundle\Entity\Cliente:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ClienteRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nome:
+            type: string
+            length: '100'
+        email:
+            type: string
+            length: '200'
+            unique: true
+    lifecycleCallbacks: {  }

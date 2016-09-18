@@ -1,0 +1,15 @@
+AppBundle\Entity\Pedido:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\PedidoRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        numero:
+            type: integer
+            unique: true
+    lifecycleCallbacks: {  }

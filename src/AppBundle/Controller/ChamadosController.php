@@ -24,6 +24,27 @@ class ChamadosController extends Controller
     }
 
     /**
+     * @Route("/seed", name="chamados_seed")
+     * @Method({"GET", "HEAD"})
+     */
+    public function seedAction(Request $request)
+    {
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Pedido');
+        $pedidos = $repository->findAll();
+        
+        if (empty($pedidos)) {
+            for ($n = 0;$n < 10;$n++) {
+                $pedidos[] = $repository->novo($this->getDoctrine()->getManager(), ($n + 1) * 10);
+            }
+        }
+
+        return $this->render('chamados/seed.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
+            'pedidos'  => $pedidos,
+        ]);
+    }
+
+    /**
      * @Route("/novo", name="chamados_novo")
      * @Method({"GET", "HEAD"})
      */
@@ -41,9 +62,13 @@ class ChamadosController extends Controller
     public function salvarAction(Request $request)
     {
         $response = new JsonResponse();
+        $em = $this->getDoctrine()->getManager();
+        $pedidoRepository = $this->getDoctrine()->getRepository('AppBundle:Pedido');
+        $clienteRepository = $this->getDoctrine()->getRepository('AppBundle:Cliente');
+        $chamadoRepository = $this->getDoctrine()->getRepository('AppBundle:Chamado');
 
-        $pedido = $request->get('pedido');
-        $pedido = null;
+        $pedidoNumero = $request->get('pedido');
+        $pedido = $pedidoRepository->findOneByNumero($pedidoNumero);
         // get Pedido
         if (is_null($pedido) || empty($pedido)) {
             return $response->setData([
@@ -53,12 +78,24 @@ class ChamadosController extends Controller
             ]);
         }
 
-        // Salvar Cliente
+        // Novo Cliente
+        $cliente = $clienteRepository->findOrCreate($em, [
+            'nome'  => $request->get('cliente'),
+            'email' => $request->get('email'),
+        ]);
 
-        // Salvar Chamado
+        // Novo Chamado
+        $chamado = $chamadoRepository->novo($em, [
+            'titulo'     => $request->get('titulo'),
+            'observacao' => $request->get('observacao'),
+            'cliente'    => $cliente->getId(),
+            'pedido'     => $pedido->getId(),
+        ]);
+
         return $response->setData([
             'status'   => 1,
-            'mensagem' => 'Chamado cadastrado com suceso!',
+            'mensagem' => 'Chamado #'. $chamado->getId() .' cadastrado com suceso!',
+            // 'mensagem' => 'Chamado # cadastrado com suceso!',
             'cor'      => 'green',
         ]);
     }
