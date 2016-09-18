@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="section">
+        <div class="row">
+            {% include 'chamados/partials/form.html.twig' %}
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("form").on("submit", function(event) {
+            event.preventDefault();
+
+            $.post(
+                "{{ path('chamados_salvar') }}",
+                $("form").serialize(),
+                function (data){
+                    var mensagem = (data["mensagem"]) ? data["mensagem"] : "Falha ao carregar a mensagem.";
+                    var cor = (data["cor"]) ? data["cor"] : "default";
+                    Materialize.toast(mensagem, 5000, cor);
+                    if (data["status"] === 1) {
+                        $("form").trigger('reset');
+                    }
+                },
+                "json"
+            );
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="section">
+        <div class="row">
+            {% include 'chamados/partials/buscar.html.twig' %}
+        </div>
+        <div class="row">
+            <div class="col s8 offset-s2">
+
+                <table class="table striped responsive-table{% if filtrar == false %} hide{% endif %}">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Pedido</th>
+                            <th>Título</th>
+                            <th>Observação</th>
+                        </tr>
+                    </thead>
+
+                    <tfoot>
+                        <tr>
+                            <td colspan="99">
+                                <ul class="pagination center">
+                                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                                    <li class="active"><a href="#!">1</a></li>
+                                    <li class="waves-effect"><a href="#!">2</a></li>
+                                    <li class="waves-effect"><a href="#!">3</a></li>
+                                    <li class="waves-effect"><a href="#!">4</a></li>
+                                    <li class="waves-effect"><a href="#!">5</a></li>
+                                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tfoot>
+
+                    <tbody>
+                        {% for chamado in chamados %}
+                            <tr>
+                                <td>
+                                    {{ chamado.cliente }} <br>
+                                    <small>{{ chamado.email }}</small>
+                                </td>
+                                <td>{{ chamado.pedido }}</td>
+                                <td>
+                                    <small class="green lighten-4">#{{ chamado.id }}</small><br>
+                                    {{ chamado.titulo }}
+                                </td>
+                                <td>{{ chamado.observacao }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="msg grey lighten-5 center-align flow-text{% if filtrar %} hide{% endif %}">
+                    Informe um filtro acima e clique em FILTRAR.
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(document).on("click", "#btn-limpar-form", function(event) {
+            event.preventDefault();
+
+            $.get(
+                "{{ path('chamados_relatorio_limpar') }}",
+                function (data){
+                    window.location.href = "{{ path('chamados_relatorio') }}";
+                },
+                "json"
+            );
+        });
+    });
+</script>
+{% endblock %}

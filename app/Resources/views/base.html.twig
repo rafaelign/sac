@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <!--Import Google Icon Font-->
+        <link href="{{ asset('fonts/material-icons/material-icons.css') }}" rel="stylesheet">
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="{{ asset('css/materialize.min.css') }}">
+
+        {% block stylesheets %}{% endblock %}
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+
+
+        <nav>
+            <div class="nav-wrapper">
+                <a href="{{ path('chamados') }}" class="brand-logo center">SAC</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="{{ path('chamados_novo') }}">Novo Chamado</a></li>
+                    <li><a href="{{ path('chamados_relatorio') }}">Relatório</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="{{ asset('js/materialize.min.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
