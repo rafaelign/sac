@@ -2,13 +2,16 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Cliente
  */
 class Cliente
 {
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -22,15 +25,11 @@ class Cliente
      */
     private $email;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Chamado", mappedBy="cliente")
-     */
-    private $chamados;
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {

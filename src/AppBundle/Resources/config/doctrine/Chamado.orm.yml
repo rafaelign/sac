@@ -15,10 +15,17 @@ AppBundle\Entity\Chamado:
         observacao:
             type: text
             nullable: true
-        clienteId:
-            type: integer
-            column: cliente_id
-        pedidoId:
-            type: integer
-            column: pedido_id
     lifecycleCallbacks: {  }
+    manyToOne:
+        cliente:
+            targetEntity: Cliente
+            inversedBy: chamados
+            joinColumn:
+                name: cliente_id
+                referencedColumnName: id
+        pedido:
+            targetEntity: Pedido
+            inversedBy: chamados
+            joinColumn:
+                name: pedido_id
+                referencedColumnName: id

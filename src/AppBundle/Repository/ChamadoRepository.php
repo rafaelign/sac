@@ -17,12 +17,12 @@ class ChamadoRepository extends \Doctrine\ORM\EntityRepository
         $chamado = new Chamado();
         $chamado->setTitulo($dados['titulo']);
         $chamado->setObservacao($dados['observacao']);
-        $chamado->setClienteId($dados['cliente']);
-        $chamado->setPedidoId($dados['pedido']);
+        $chamado->setCliente($dados['cliente']);
+        $chamado->setPedido($dados['pedido']);
         
         $em->persist($chamado);
         $em->flush();
-        
+
         return $chamado;
     }
 }

@@ -2,18 +2,21 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Pedido
  */
 class Pedido
 {
+
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
     /**
-     * @var int
+     * @var integer
      */
     private $numero;
 
@@ -21,7 +24,7 @@ class Pedido
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -45,7 +48,7 @@ class Pedido
     /**
      * Get numero
      *
-     * @return int
+     * @return integer
      */
     public function getNumero()
     {

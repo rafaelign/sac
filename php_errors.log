@@ -152,3 +152,84 @@
 [18-Sep-2016 23:28:20 UTC] PHP  28. ReflectionClass->__construct() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/Routing/Loader/AnnotationDirectoryLoader.php:52
 [18-Sep-2016 23:28:20 UTC] PHP  29. spl_autoload_call() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/Routing/Loader/AnnotationDirectoryLoader.php:52
 [18-Sep-2016 23:28:20 UTC] PHP  30. Symfony\Component\Debug\DebugClassLoader->loadClass() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/Routing/Loader/AnnotationDirectoryLoader.php:52
+[18-Sep-2016 23:49:43 UTC] PHP Fatal error:  Call to undefined method AppBundle\Entity\Chamado::setCliente() in /home/ubuntu/workspace/symfony_sac/src/AppBundle/Repository/ChamadoRepository.php on line 20
+[18-Sep-2016 23:49:43 UTC] PHP Stack trace:
+[18-Sep-2016 23:49:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:0
+[18-Sep-2016 23:49:43 UTC] PHP   2. Symfony\Component\HttpKernel\Kernel->handle() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:30
+[18-Sep-2016 23:49:43 UTC] PHP   3. Symfony\Component\HttpKernel\HttpKernel->handle() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:169
+[18-Sep-2016 23:49:43 UTC] PHP   4. Symfony\Component\HttpKernel\HttpKernel->handleRaw() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:68
+[18-Sep-2016 23:49:43 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153}() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[18-Sep-2016 23:49:43 UTC] PHP   6. AppBundle\Controller\ChamadosController->salvarAction() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[18-Sep-2016 23:49:43 UTC] PHP   7. AppBundle\Repository\ChamadoRepository->novo() /home/ubuntu/workspace/symfony_sac/src/AppBundle/Controller/ChamadosController.php:95
+[18-Sep-2016 23:52:52 UTC] PHP Fatal error:  Call to undefined method AppBundle\Entity\Chamado::setCliente() in /home/ubuntu/workspace/symfony_sac/src/AppBundle/Repository/ChamadoRepository.php on line 20
+[18-Sep-2016 23:52:52 UTC] PHP Stack trace:
+[18-Sep-2016 23:52:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:0
+[18-Sep-2016 23:52:52 UTC] PHP   2. Symfony\Component\HttpKernel\Kernel->handle() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:30
+[18-Sep-2016 23:52:52 UTC] PHP   3. Symfony\Component\HttpKernel\HttpKernel->handle() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:169
+[18-Sep-2016 23:52:52 UTC] PHP   4. Symfony\Component\HttpKernel\HttpKernel->handleRaw() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:68
+[18-Sep-2016 23:52:52 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153}() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[18-Sep-2016 23:52:52 UTC] PHP   6. AppBundle\Controller\ChamadosController->salvarAction() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[18-Sep-2016 23:52:52 UTC] PHP   7. AppBundle\Repository\ChamadoRepository->novo() /home/ubuntu/workspace/symfony_sac/src/AppBundle/Controller/ChamadosController.php:95
+[18-Sep-2016 23:53:30 UTC] PHP Fatal error:  Call to undefined method AppBundle\Entity\Chamado::setCliente() in /home/ubuntu/workspace/symfony_sac/src/AppBundle/Repository/ChamadoRepository.php on line 20
+[18-Sep-2016 23:53:30 UTC] PHP Stack trace:
+[18-Sep-2016 23:53:30 UTC] PHP   1. {main}() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:0
+[18-Sep-2016 23:53:30 UTC] PHP   2. Symfony\Component\HttpKernel\Kernel->handle() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:30
+[18-Sep-2016 23:53:30 UTC] PHP   3. Symfony\Component\HttpKernel\HttpKernel->handle() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:169
+[18-Sep-2016 23:53:30 UTC] PHP   4. Symfony\Component\HttpKernel\HttpKernel->handleRaw() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:68
+[18-Sep-2016 23:53:30 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153}() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[18-Sep-2016 23:53:30 UTC] PHP   6. AppBundle\Controller\ChamadosController->salvarAction() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[18-Sep-2016 23:53:30 UTC] PHP   7. AppBundle\Repository\ChamadoRepository->novo() /home/ubuntu/workspace/symfony_sac/src/AppBundle/Controller/ChamadosController.php:95
+[18-Sep-2016 23:56:10 UTC] PHP Fatal error:  Call to undefined method AppBundle\Entity\Chamado::setCliente() in /home/ubuntu/workspace/symfony_sac/src/AppBundle/Repository/ChamadoRepository.php on line 20
+[18-Sep-2016 23:56:10 UTC] PHP Stack trace:
+[18-Sep-2016 23:56:10 UTC] PHP   1. {main}() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:0
+[18-Sep-2016 23:56:10 UTC] PHP   2. Symfony\Component\HttpKernel\Kernel->handle() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:30
+[18-Sep-2016 23:56:10 UTC] PHP   3. Symfony\Component\HttpKernel\HttpKernel->handle() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:169
+[18-Sep-2016 23:56:10 UTC] PHP   4. Symfony\Component\HttpKernel\HttpKernel->handleRaw() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:68
+[18-Sep-2016 23:56:10 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153}() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[18-Sep-2016 23:56:10 UTC] PHP   6. AppBundle\Controller\ChamadosController->salvarAction() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[18-Sep-2016 23:56:10 UTC] PHP   7. AppBundle\Repository\ChamadoRepository->novo() /home/ubuntu/workspace/symfony_sac/src/AppBundle/Controller/ChamadosController.php:95
+[18-Sep-2016 23:56:25 UTC] PHP Fatal error:  Call to undefined method AppBundle\Entity\Chamado::setCliente() in /home/ubuntu/workspace/symfony_sac/src/AppBundle/Repository/ChamadoRepository.php on line 22
+[18-Sep-2016 23:56:25 UTC] PHP Stack trace:
+[18-Sep-2016 23:56:25 UTC] PHP   1. {main}() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:0
+[18-Sep-2016 23:56:25 UTC] PHP   2. Symfony\Component\HttpKernel\Kernel->handle() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:30
+[18-Sep-2016 23:56:25 UTC] PHP   3. Symfony\Component\HttpKernel\HttpKernel->handle() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:169
+[18-Sep-2016 23:56:25 UTC] PHP   4. Symfony\Component\HttpKernel\HttpKernel->handleRaw() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:68
+[18-Sep-2016 23:56:25 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153}() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[18-Sep-2016 23:56:25 UTC] PHP   6. AppBundle\Controller\ChamadosController->salvarAction() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[18-Sep-2016 23:56:25 UTC] PHP   7. AppBundle\Repository\ChamadoRepository->novo() /home/ubuntu/workspace/symfony_sac/src/AppBundle/Controller/ChamadosController.php:95
+[19-Sep-2016 00:00:57 UTC] PHP Fatal error:  Call to undefined method AppBundle\Entity\Chamado::setCliente() in /home/ubuntu/workspace/symfony_sac/src/AppBundle/Repository/ChamadoRepository.php on line 22
+[19-Sep-2016 00:00:57 UTC] PHP Stack trace:
+[19-Sep-2016 00:00:57 UTC] PHP   1. {main}() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:0
+[19-Sep-2016 00:00:57 UTC] PHP   2. Symfony\Component\HttpKernel\Kernel->handle() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:30
+[19-Sep-2016 00:00:57 UTC] PHP   3. Symfony\Component\HttpKernel\HttpKernel->handle() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:169
+[19-Sep-2016 00:00:57 UTC] PHP   4. Symfony\Component\HttpKernel\HttpKernel->handleRaw() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:68
+[19-Sep-2016 00:00:57 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153}() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[19-Sep-2016 00:00:57 UTC] PHP   6. AppBundle\Controller\ChamadosController->salvarAction() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[19-Sep-2016 00:00:57 UTC] PHP   7. AppBundle\Repository\ChamadoRepository->novo() /home/ubuntu/workspace/symfony_sac/src/AppBundle/Controller/ChamadosController.php:95
+[19-Sep-2016 00:05:05 UTC] PHP Fatal error:  Call to undefined method AppBundle\Entity\Chamado::setCliente() in /home/ubuntu/workspace/symfony_sac/src/AppBundle/Repository/ChamadoRepository.php on line 23
+[19-Sep-2016 00:05:05 UTC] PHP Stack trace:
+[19-Sep-2016 00:05:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:0
+[19-Sep-2016 00:05:05 UTC] PHP   2. Symfony\Component\HttpKernel\Kernel->handle() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:30
+[19-Sep-2016 00:05:05 UTC] PHP   3. Symfony\Component\HttpKernel\HttpKernel->handle() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:169
+[19-Sep-2016 00:05:05 UTC] PHP   4. Symfony\Component\HttpKernel\HttpKernel->handleRaw() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:68
+[19-Sep-2016 00:05:05 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153}() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[19-Sep-2016 00:05:05 UTC] PHP   6. AppBundle\Controller\ChamadosController->salvarAction() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[19-Sep-2016 00:05:05 UTC] PHP   7. AppBundle\Repository\ChamadoRepository->novo() /home/ubuntu/workspace/symfony_sac/src/AppBundle/Controller/ChamadosController.php:95
+[19-Sep-2016 00:10:31 UTC] PHP Fatal error:  Call to undefined method AppBundle\Entity\Chamado::setCliente() in /home/ubuntu/workspace/symfony_sac/src/AppBundle/Repository/ChamadoRepository.php on line 23
+[19-Sep-2016 00:10:31 UTC] PHP Stack trace:
+[19-Sep-2016 00:10:31 UTC] PHP   1. {main}() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:0
+[19-Sep-2016 00:10:31 UTC] PHP   2. Symfony\Component\HttpKernel\Kernel->handle() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:30
+[19-Sep-2016 00:10:31 UTC] PHP   3. Symfony\Component\HttpKernel\HttpKernel->handle() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:169
+[19-Sep-2016 00:10:31 UTC] PHP   4. Symfony\Component\HttpKernel\HttpKernel->handleRaw() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:68
+[19-Sep-2016 00:10:31 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153}() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[19-Sep-2016 00:10:31 UTC] PHP   6. AppBundle\Controller\ChamadosController->salvarAction() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[19-Sep-2016 00:10:31 UTC] PHP   7. AppBundle\Repository\ChamadoRepository->novo() /home/ubuntu/workspace/symfony_sac/src/AppBundle/Controller/ChamadosController.php:95
+[19-Sep-2016 00:19:41 UTC] PHP Fatal error:  Call to undefined method AppBundle\Entity\Chamado::setPedido() in /home/ubuntu/workspace/symfony_sac/src/AppBundle/Repository/ChamadoRepository.php on line 24
+[19-Sep-2016 00:19:41 UTC] PHP Stack trace:
+[19-Sep-2016 00:19:41 UTC] PHP   1. {main}() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:0
+[19-Sep-2016 00:19:41 UTC] PHP   2. Symfony\Component\HttpKernel\Kernel->handle() /home/ubuntu/workspace/symfony_sac/web/app_dev.php:30
+[19-Sep-2016 00:19:41 UTC] PHP   3. Symfony\Component\HttpKernel\HttpKernel->handle() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php:169
+[19-Sep-2016 00:19:41 UTC] PHP   4. Symfony\Component\HttpKernel\HttpKernel->handleRaw() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:68
+[19-Sep-2016 00:19:41 UTC] PHP   5. call_user_func_array:{/home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153}() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[19-Sep-2016 00:19:41 UTC] PHP   6. AppBundle\Controller\ChamadosController->salvarAction() /home/ubuntu/workspace/symfony_sac/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php:153
+[19-Sep-2016 00:19:41 UTC] PHP   7. AppBundle\Repository\ChamadoRepository->novo() /home/ubuntu/workspace/symfony_sac/src/AppBundle/Controller/ChamadosController.php:95

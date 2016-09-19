@@ -13,3 +13,7 @@ AppBundle\Entity\Pedido:
             type: integer
             unique: true
     lifecycleCallbacks: {  }
+    # oneToMany:
+    #     chamados:
+    #         targetEntity: Chamado
+    #         mappedBy: pedido

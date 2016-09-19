@@ -8,7 +8,7 @@ namespace AppBundle\Entity;
 class Chamado
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -23,37 +23,25 @@ class Chamado
     private $observacao;
 
     /**
-     * @var int
+     * @var \AppBundle\Entity\Cliente
      */
-    private $clienteId;
+    private $cliente;
 
     /**
-     * @var int
+     * @var \AppBundle\Entity\Pedido
      */
-    private $pedidoId;
+    private $pedido;
 
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
     }
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Pedido", inversedBy="chamados")
-     * @ORM\JoinColumn(name="pedido_numero", referencedColumnName="numero")
-     */
-    private $pedido;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="chamados")
-     * @ORM\JoinColumn(name="clienteId", referencedColumnName="id")
-     */
-    private $cliente;
 
     /**
      * Set titulo
@@ -104,50 +92,50 @@ class Chamado
     }
 
     /**
-     * Set clienteId
+     * Set cliente
      *
-     * @param integer $clienteId
+     * @param \AppBundle\Entity\Cliente $cliente
      *
      * @return Chamado
      */
-    public function setClienteId($clienteId)
+    public function setCliente(\AppBundle\Entity\Cliente $cliente = null)
     {
-        $this->clienteId = $clienteId;
+        $this->cliente = $cliente;
 
         return $this;
     }
 
     /**
-     * Get clienteId
+     * Get cliente
      *
-     * @return int
+     * @return \AppBundle\Entity\Cliente
      */
-    public function getClienteId()
+    public function getCliente()
     {
-        return $this->clienteId;
+        return $this->cliente;
     }
 
     /**
-     * Set pedidoId
+     * Set pedido
      *
-     * @param integer $pedidoId
+     * @param \AppBundle\Entity\Pedido $pedido
      *
      * @return Chamado
      */
-    public function setPedidoId($pedidoId)
+    public function setPedido(\AppBundle\Entity\Pedido $pedido = null)
     {
-        $this->pedidoId = $pedidoId;
+        $this->pedido = $pedido;
 
         return $this;
     }
 
     /**
-     * Get pedidoId
+     * Get pedido
      *
-     * @return int
+     * @return \AppBundle\Entity\Pedido
      */
-    public function getPedidoId()
+    public function getPedido()
     {
-        return $this->pedidoId;
+        return $this->pedido;
     }
 }

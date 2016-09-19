@@ -2,57 +2,12 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Pedido
  */
 class Pedido
 {
-    /**
-     * @var int
-     */
-    private $id;
 
-    /**
-     * @var int
-     */
-    private $numero;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Chamado", mappedBy="pedido")
-     */
-    private $chamados;
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set numero
-     *
-     * @param integer $numero
-     *
-     * @return Pedido
-     */
-    public function setNumero($numero)
-    {
-        $this->numero = $numero;
-
-        return $this;
-    }
-
-    /**
-     * Get numero
-     *
-     * @return int
-     */
-    public function getNumero()
-    {
-        return $this->numero;
-    }
 }

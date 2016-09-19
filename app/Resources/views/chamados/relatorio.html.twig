@@ -6,7 +6,7 @@
             {% include 'chamados/partials/buscar.html.twig' %}
         </div>
         <div class="row">
-            <div class="col s8 offset-s2">
+            <div class="col s10 offset-s1">
 
                 <table class="table striped responsive-table{% if filtrar == false %} hide{% endif %}">
                     <thead>
@@ -22,13 +22,11 @@
                         <tr>
                             <td colspan="99">
                                 <ul class="pagination center">
-                                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                                    <li class="active"><a href="#!">1</a></li>
-                                    <li class="waves-effect"><a href="#!">2</a></li>
-                                    <li class="waves-effect"><a href="#!">3</a></li>
-                                    <li class="waves-effect"><a href="#!">4</a></li>
-                                    <li class="waves-effect"><a href="#!">5</a></li>
-                                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                                    <li class="{% if pagina-1 <= 0 %}disabled{% else %}waves-effect{% endif %}"><a href="{% if pagina-1 < 0 %}#!{% else %}{{ path('chamados_relatorio') }}/{{ pagina-1 }}{% endif %}"><i class="material-icons">chevron_left</i></a></li>
+                                    {% for i in 1..total_pg %}
+                                        <li class="{% if pagina == i %}active{% else %}waves-effect{% endif %}"><a href="{% if pagina == i %}#!{% else %}{{ path('chamados_relatorio') }}/{{ i }}{% endif %}">{{ i }}</a></li>
+                                    {% endfor %}
+                                    <li class="{% if pagina+1 > total_pg %}disabled{% else %}waves-effect{% endif %}"><a href="{% if pagina+1 > total_pg %}#!{% else %}{{ path('chamados_relatorio') }}/{{ pagina+1 }}{% endif %}"><i class="material-icons">chevron_right</i></a></li>
                                 </ul>
                             </td>
                         </tr>
@@ -38,15 +36,19 @@
                         {% for chamado in chamados %}
                             <tr>
                                 <td>
-                                    {{ chamado.cliente }} <br>
-                                    <small>{{ chamado.email }}</small>
+                                    {{ chamado.getCliente.getNome }} <br>
+                                    <small>{{ chamado.getCliente.getEmail }}</small>
                                 </td>
-                                <td>{{ chamado.pedido }}</td>
                                 <td>
-                                    <small class="green lighten-4">#{{ chamado.id }}</small><br>
-                                    {{ chamado.titulo }}
+                                    {{ chamado.getPedido.getNumero }}
                                 </td>
-                                <td>{{ chamado.observacao }}</td>
+                                <td>
+                                    <small class="green lighten-4">#{{ chamado.getId }}</small><br>
+                                    {{ chamado.getTitulo }}
+                                </td>
+                                <td>
+                                    {{ chamado.getObservacao }}
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>

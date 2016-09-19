@@ -34,7 +34,9 @@ class ChamadosController extends Controller
         
         if (empty($pedidos)) {
             for ($n = 0;$n < 10;$n++) {
-                $pedidos[] = $repository->novo($this->getDoctrine()->getManager(), ($n + 1) * 10);
+                $pedidos[] = $repository->novo($this->getDoctrine()->getManager(), [ 
+                    'numero' => ($n + 1) * 10
+                ]);
             }
         }
 
@@ -83,15 +85,15 @@ class ChamadosController extends Controller
             'nome'  => $request->get('cliente'),
             'email' => $request->get('email'),
         ]);
-
+        
         // Novo Chamado
         $chamado = $chamadoRepository->novo($em, [
             'titulo'     => $request->get('titulo'),
             'observacao' => $request->get('observacao'),
-            'cliente'    => $cliente->getId(),
-            'pedido'     => $pedido->getId(),
+            'cliente'    => $cliente,
+            'pedido'     => $pedido,
         ]);
-
+        
         return $response->setData([
             'status'   => 1,
             'mensagem' => 'Chamado #'. $chamado->getId() .' cadastrado com suceso!',
@@ -114,10 +116,13 @@ class ChamadosController extends Controller
     }
 
     /**
-     * @Route("/relatorio", name="chamados_relatorio")
+     * @Route("/relatorio/{pagina}", name="chamados_relatorio")
      */
-    public function relatorioAction(Request $request, $page = 1)
+    public function relatorioAction(Request $request, $pagina = 1)
     {
+        $limit    = 5;
+        $offset   = ($limit * $pagina) - $limit;
+        $count    = 0;
         $chamados = [];
         $session  = $request->getSession();
         $filtros  = $session->get('filtros', []);
@@ -135,32 +140,20 @@ class ChamadosController extends Controller
 
         // Busca de chamados
         if (!empty($filtros)) {
-            $chamados = [
-                [
-                    'cliente' => 'ABC',
-                    'email' => 'abc@abc.com',
-                    'pedido' => 123,
-                    'id' => 1,
-                    'titulo' => 'ABC Título',
-                    'observacao' => 'ABC Observação'
-                ],
-                [
-                    'cliente' => 'DEF',
-                    'email' => 'def@def.com',
-                    'pedido' => 456,
-                    'id' => 2,
-                    'titulo' => 'DEF Título',
-                    'observacao' => 'DEF Observação'
-                ],
-                [
-                    'cliente' => 'GHI',
-                    'email' => 'ghi@ghi.com',
-                    'pedido' => 789,
-                    'id' => 3,
-                    'titulo' => 'GHI Título',
-                    'observacao' => 'GHI Observação'
-                ]
-            ];
+            $chamadoRepository = $this->getDoctrine()->getRepository('AppBundle:Chamado');
+            $clienteRepository = $this->getDoctrine()->getRepository('AppBundle:Cliente');
+            $pedidoRepository = $this->getDoctrine()->getRepository('AppBundle:Pedido');
+            
+            $filtros_ = [];
+            if (isset($filtros['email'])) {
+                $filtros_['cliente'] = $clienteRepository->findByEmail($filtros['email']);
+            } 
+            if (isset($filtros['pedido'])) {
+                $filtros_['pedido'] = $pedidoRepository->findByNumero($filtros['pedido']);
+            } 
+            
+            $count    = count($chamadoRepository->findBy( $filtros_ ));
+            $chamados = $chamadoRepository->findBy( $filtros_, [], $limit, $offset );
         }
 
         return $this->render('chamados/relatorio.html.twig', [
@@ -168,6 +161,9 @@ class ChamadosController extends Controller
             'filtrar'  => !empty($filtros),
             'filtros'  => $filtros,
             'chamados' => $chamados,
+            'total'    => $count,
+            'total_pg' => ceil($count/$limit),
+            'pagina'   => $pagina,
         ]);
     }
 }
